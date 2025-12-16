@@ -1,71 +1,107 @@
-<!doctype html>
-<html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard Mega Ultra</title>
 
-  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css?v=2">
 </head>
+
 <body>
-  <div class="dashboard-mega">
 
-    <div class="header">
-      <div class="header-content">
-        <h1>🚀 DASHBOARD MEGA ULTRA</h1>
-        <p>Análise avançada com inteligência artificial e insights preditivos</p>
+  <div class="dashboard">
 
-        <div class="header-stats">
-          <div class="header-stat">
-            <div class="header-stat-value">R$ 0,00</div>
-            <div class="header-stat-label">Total Gasto</div>
+    <!-- HEADER -->
+    <header class="dashboard-header">
+      <h1>Dashboard Mega Ultra</h1>
+      <p>Análise avançada de compras, fornecedores e desempenho financeiro</p>
+
+      <div class="header-metrics">
+        <div class="metric">
+          <span>Total Gasto</span>
+          <strong id="totalGasto">R$ 0,00</strong>
+        </div>
+        <div class="metric">
+          <span>Compras</span>
+          <strong id="totalCompras">0</strong>
+        </div>
+        <div class="metric">
+          <span>Fornecedores</span>
+          <strong id="totalFornecedores">0</strong>
+        </div>
+      </div>
+    </header>
+
+    <!-- NAV -->
+    <nav class="dashboard-nav">
+      <button class="active">Visão Geral</button>
+      <button>Rankings</button>
+      <button>Descontos</button>
+      <button>Pedidos</button>
+    </nav>
+
+    <!-- CONTEÚDO -->
+    <main class="dashboard-content">
+
+      <!-- VISÃO GERAL -->
+      <section class="card">
+        <h2>Visão Geral</h2>
+        <div class="grid-3">
+          <div class="info-box">
+            <span>Ticket Médio</span>
+            <strong id="ticketMedio">R$ 0,00</strong>
           </div>
-          <div class="header-stat">
-            <div class="header-stat-value">0</div>
-            <div class="header-stat-label">Compras</div>
+          <div class="info-box">
+            <span>Maior Compra</span>
+            <strong id="maiorCompra">R$ 0,00</strong>
           </div>
-          <div class="header-stat">
-            <div class="header-stat-value">0</div>
-            <div class="header-stat-label">Fornecedores</div>
+          <div class="info-box">
+            <span>Total em Descontos</span>
+            <strong id="totalDescontos">R$ 0,00</strong>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
 
-    <div class="tabs-container">
-      <div class="tabs">
-        <button class="tab active">📊 Visão Geral</button>
-        <button class="tab">🏆 Rankings</button>
-        <button class="tab">📈 Temporal</button>
-      </div>
-    </div>
+      <!-- RANKINGS -->
+      <section class="card">
+        <h2>Rankings</h2>
 
-    <div class="card full-width">
-      <div class="card-header">
-        <div class="card-title">📈 MÉTRICAS</div>
-      </div>
+        <div class="grid-2">
+          <div>
+            <h3>Maiores Compras</h3>
+            <ul id="rankingCompras" class="list"></ul>
+          </div>
 
-      <div class="metrics-grid">
-        <div class="metric-card">
-          <div class="metric-icon">💰</div>
-          <div class="metric-value">R$ 0,00</div>
-          <div class="metric-label">Total Gasto</div>
+          <div>
+            <h3>Fornecedores por Gasto</h3>
+            <ul id="rankingFornecedores" class="list"></ul>
+          </div>
         </div>
-        <div class="metric-card">
-          <div class="metric-icon">📦</div>
-          <div class="metric-value">0</div>
-          <div class="metric-label">Compras</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-icon">🏢</div>
-          <div class="metric-value">0</div>
-          <div class="metric-label">Fornecedores</div>
-        </div>
-      </div>
-    </div>
+      </section>
 
-    <button class="btn-print">🚀 GERAR RELATÓRIO</button>
+      <!-- DESCONTOS -->
+      <section class="card">
+        <h2>Descontos por Pedido</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Pedido</th>
+              <th>Valor Original</th>
+              <th>Desconto</th>
+              <th>Valor Final</th>
+            </tr>
+          </thead>
+          <tbody id="tabelaDescontos"></tbody>
+        </table>
+      </section>
+
+    </main>
 
   </div>
+
+  <script src="./js/dashboard.js?v=2"></script>
 </body>
 </html>

@@ -1,202 +1,71 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!doctype html>
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dashboard Mega Ultra</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
-
 <body>
   <div class="dashboard-mega">
-    <!-- Header Mega -->
+
     <div class="header">
       <div class="header-content">
-        <h1 id="titulo-dashboard">🚀 DASHBOARD MEGA ULTRA</h1>
-        <p id="subtitulo-dashboard">Análise avançada com inteligência artificial e insights preditivos</p>
+        <h1>🚀 DASHBOARD MEGA ULTRA</h1>
+        <p>Análise avançada com inteligência artificial e insights preditivos</p>
+
         <div class="header-stats">
           <div class="header-stat">
-            <div class="header-stat-value" id="header-total">R$ 0</div>
+            <div class="header-stat-value">R$ 0,00</div>
             <div class="header-stat-label">Total Gasto</div>
           </div>
           <div class="header-stat">
-            <div class="header-stat-value" id="header-compras">0</div>
+            <div class="header-stat-value">0</div>
             <div class="header-stat-label">Compras</div>
           </div>
           <div class="header-stat">
-            <div class="header-stat-value" id="header-fornecedores">0</div>
+            <div class="header-stat-value">0</div>
             <div class="header-stat-label">Fornecedores</div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Tabs Premium -->
     <div class="tabs-container">
       <div class="tabs">
-        <!-- IMPORTANTE: passe o event -->
-        <button class="tab active" onclick="showTab('visao-geral', event)">📊 Visão Geral</button>
-        <button class="tab" onclick="showTab('rankings', event)">🏆 Rankings Avançados</button>
-        <button class="tab" onclick="showTab('temporal', event)">📈 Análise Temporal</button>
-        <button class="tab" onclick="showTab('distribuicoes', event)">📋 Distribuições</button>
-        <button class="tab" onclick="showTab('descontos', event)">🎁 Descontos & Economias</button>
-        <button class="tab" onclick="showTab('insights', event)">💡 Insights IA</button>
-        <button class="tab" onclick="showTab('pedidos', event)">📦 Análise por Pedidos</button>
+        <button class="tab active">📊 Visão Geral</button>
+        <button class="tab">🏆 Rankings</button>
+        <button class="tab">📈 Temporal</button>
       </div>
     </div>
 
-    <!-- Loading -->
-    <div id="loading" class="loading">
-      <div class="loading-spinner"></div>
-      <p id="loading-text">🚀 Inicializando análise completa...</p>
-      <p style="font-size: 0.9em; opacity: 0.7; margin-top: 10px;">Processando dados avançados e gerando insights inteligentes</p>
+    <div class="card full-width">
+      <div class="card-header">
+        <div class="card-title">📈 MÉTRICAS</div>
+      </div>
+
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-icon">💰</div>
+          <div class="metric-value">R$ 0,00</div>
+          <div class="metric-label">Total Gasto</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon">📦</div>
+          <div class="metric-value">0</div>
+          <div class="metric-label">Compras</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon">🏢</div>
+          <div class="metric-value">0</div>
+          <div class="metric-label">Fornecedores</div>
+        </div>
+      </div>
     </div>
 
-    <!-- Conteúdo -->
-    <div id="content" style="display: none;">
+    <button class="btn-print">🚀 GERAR RELATÓRIO</button>
 
-      <!-- VISÃO GERAL -->
-      <div id="visao-geral" class="tab-content active fade-in">
-        <div class="card full-width">
-          <div class="card-header">
-            <div class="card-title">📈 MÉTRICAS AVANÇADAS</div>
-            <div class="badge" id="total-periodo">Análise em Tempo Real</div>
-          </div>
-          <div class="metrics-grid" id="metrics-grid"></div>
-        </div>
-
-        <div class="grid-container">
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title">🕐 COMPARAÇÃO TEMPORAL</div>
-            </div>
-            <div class="comparison" id="comparison-temporal"></div>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title">🎯 ESTATÍSTICAS DETALHADAS</div>
-            </div>
-            <div class="stats-grid" id="estatisticas-avancadas"></div>
-          </div>
-        </div>
-
-        <div class="card full-width">
-          <div class="card-header">
-            <div class="card-title">💡 INSIGHTS INTELIGENTES</div>
-          </div>
-          <div class="insights-grid" id="insights-automaticos"></div>
-        </div>
-      </div>
-
-      <!-- RANKINGS AVANÇADOS -->
-      <div id="rankings" class="tab-content">
-        <div class="grid-container">
-          <div class="card">
-            <div class="card-header"><div class="card-title">🏆 TOP FORNECEDORES</div></div>
-            <div class="ranking-container" id="ranking-fornecedores"></div>
-          </div>
-
-          <div class="card">
-            <div class="card-header"><div class="card-title">📦 PEÇAS MAIS COMPRADAS</div></div>
-            <div class="ranking-container" id="ranking-pecas"></div>
-          </div>
-
-          <div class="card">
-            <div class="card-header"><div class="card-title">🍕 GASTOS POR CATEGORIA</div></div>
-            <div class="ranking-container" id="ranking-categorias"></div>
-          </div>
-
-          <div class="card">
-            <div class="card-header"><div class="card-title">🔄 FORNECEDORES FREQUENTES</div></div>
-            <div class="ranking-container" id="ranking-frequencia"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ANÁLISE TEMPORAL -->
-      <div id="temporal" class="tab-content">
-        <div class="card full-width">
-          <div class="card-header"><div class="card-title">📅 EVOLUÇÃO MENSAL DETALHADA</div></div>
-          <div class="ranking-container" id="evolucao-mensal"></div>
-        </div>
-
-        <div class="grid-container">
-          <div class="card">
-            <div class="card-header"><div class="card-title">📊 PADRÕES SEMANAIS</div></div>
-            <div id="sazonalidade-semanal"></div>
-          </div>
-
-          <div class="card">
-            <div class="card-header"><div class="card-title">🕒 HORÁRIOS PREFERIDOS</div></div>
-            <div id="horarios-compras"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- DISTRIBUIÇÕES -->
-      <div id="distribuicoes" class="tab-content">
-        <div class="card full-width">
-          <div class="card-header"><div class="card-title">📈 DISTRIBUIÇÃO POR VALOR DAS COMPRAS</div></div>
-          <div class="distribution-chart" id="distribuicao-valor"></div>
-        </div>
-
-        <div class="grid-container">
-          <div class="card">
-            <div class="card-header"><div class="card-title">📦 DISTRIBUIÇÃO POR QUANTIDADE</div></div>
-            <div class="distribution-chart" id="distribuicao-quantidade"></div>
-          </div>
-
-          <div class="card">
-            <div class="card-header"><div class="card-title">💰 DISTRIBUIÇÃO POR VALOR UNITÁRIO</div></div>
-            <div class="distribution-chart" id="distribuicao-valor-unitario"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ABA DESCONTOS -->
-      <div id="descontos" class="tab-content">
-        <!-- (mantém igual ao teu HTML) -->
-        <!-- aqui você cola o bloco descontos inteiro que você já tem -->
-        <!-- para não estourar a mensagem, mantive a estrutura. Pode colar seu bloco exatamente aqui. -->
-      </div>
-
-      <!-- INSIGHTS IA -->
-      <div id="insights" class="tab-content">
-        <div class="card full-width">
-          <div class="card-header"><div class="card-title">🤖 INSIGHTS DE INTELIGÊNCIA ARTIFICIAL</div></div>
-          <div class="insights-grid" id="insights-ia"></div>
-        </div>
-
-        <div class="card full-width">
-          <div class="card-header"><div class="card-title">🎯 RECOMENDAÇÕES ESTRATÉGICAS</div></div>
-          <div id="recomendacoes-estrategicas"></div>
-        </div>
-      </div>
-
-      <!-- PEDIDOS -->
-      <div id="pedidos" class="tab-content">
-        <!-- (mantém igual ao teu HTML) -->
-        <!-- cola o bloco pedidos inteiro aqui -->
-      </div>
-
-    </div>
-
-    <!-- Botão Imprimir -->
-    <button class="btn-print" onclick="gerarRelatorioPremium()">
-      🚀 GERAR RELATÓRIO PREMIUM
-    </button>
-
-    <!-- Mensagens -->
-    <div id="error" class="error" style="display: none;"></div>
-    <div id="success" class="success" style="display: none;"></div>
   </div>
-
-  <!-- SCRIPTS -->
-  <script src="js/dashboard.js"></script>
 </body>
 </html>
-
-
